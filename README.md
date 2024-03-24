@@ -1,2 +1,2 @@
-# Excel Formulas
-Contains stored excel formulas and their use cases.
+# Excel Portfolio
+Contains stored excel formulas and use cases.
