@@ -1,19 +1,54 @@
-EXCEL SKILLS
+Excel Formulas (for future use)
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#Bins shift category Formula to create a column that bins shift into categories. Used to categorize CPhT's shift.
-=IF(AND(HOUR([@[REQUESTED_ON]])>=8, HOUR([@[REQUESTED_ON]])<18),"DAY SHIFT",IF(AND(HOUR([@[REQUESTED_ON]])>=18,HOUR([@[REQUESTED_ON]])<=23),"EVENING SHIFT", "NIGHT SHIFT"))
+#Bins time into categorical intervals. Used to categorize a worker's time shift.
+  =IF(
+  AND(HOUR([@[REQUESTED_ON]])>=8, HOUR([@[REQUESTED_ON]])<18),"DAY SHIFT",
+  IF(AND(HOUR([@[REQUESTED_ON]])>=18,HOUR([@[REQUESTED_ON]])<=23),"EVENING SHIFT", 
+  "NIGHT SHIFT")
+  )
 
-#Showcase INDEX MATCH function to refernce values based on conditions.
-=IFERROR(INDEX('Catalog'!B:B,MATCH('Lot Tracking'!C6,'Catalog'!A:A,0)),"")
 
-#Showcase INDEX MATCH function to refernce values based on conditions. Used for CHLA to identify all ingredients for compounded drugs, for audit purposes.
-=IFS($D6="", "", $D6=1, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!C6,'Catalog'!A:A,0))," ",$J6,$K6, " ", "/", " ", $L6,"ML"), $D6=2, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6,$K6, " ", IF($V6="N", "/", "+")," ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7), $D6=3, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", ""), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8), $D6=4, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9), $D6=5, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9, " ", IF($V10="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C10,'Catalog'!A:A,0)), " ", $J10, $K10), $D6=6, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9, " ", IF($V10="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C10,'Catalog'!A:A,0)), " ", $J10, $K10, " ", IF($V11="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C11,'Catalog'!A:A,0)), " ", $J11, $K11))
 
-# PowerPivot custom measures
-Distinct Dates:=DISTINCTCOUNT([REQUEST DT])
-AVG per Day:=[Total Records]/[Distinct Dates]
-AVG per Hour:=[Total Records]/[Distinct Hours]
-Total Records:=Count([CC_COUNT OF DT_TM])
+#Different formulas to pull values from other tabs.
+  =INDEX(array,MATCH(lookup_value, lookup_array, [match_type]),[column_num])
+  =VLOOKUP(lookup_value, table_array, col_index_number,[range_lookup])
+  =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])
 
-#Create calculated columns to manipulate data
-=FORMAT(RAWDATA[REQUEST_DT_TM],"h") # Formats the time value to hours from 1-24
+
+
+#
+Use IFS and INDEX MATCH functions to reference values when input conditions are met. 
+Used to audit CHLA's compounding process, they needed to show NABP all drug ingredients made for compounded drugs.
+#
+  =IFS(
+  $D6="", "", 
+  $D6=1, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!C6,'Catalog'!A:A,0))," ",$J6,$K6, " ", "/", " ", $L6,"ML"), 
+  $D6=2, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6,$K6, " ", IF($V6="N", "/", "+")," ", 	INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7), 
+  $D6=3, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", ""), " ", 	INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!	C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8), 
+  $D6=4, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", 	INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!	C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot 	Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9), 
+  $D6=5, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", 	INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!	C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot 	Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9, " ", IF($V10="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!	$C10,'Catalog'!A:A,0)), " ", $J10, $K10), 
+  $D6=6, CONCATENATE(INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C6,'Catalog'!A:A,0))," ",$J6, $K6, " ", IF($V6="N", "+", "/"), " ", 	INDEX('Catalog'!C:C,MATCH('Lot Tracking'!$C7,'Catalog'!A:A,0)), " ", $J7, $K7, " ", IF($V8="N", "+", "/"), " ", INDEX('Catalog'!	C:C,MATCH('Lot Tracking'!$C8,'Catalog'!A:A,0)), " ", $J8, $K8, " ", IF($V9="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot 	Tracking'!$C9,'Catalog'!A:A,0)), " ", $J9, $K9, " ", IF($V10="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!	$C10,'Catalog'!A:A,0)), " ", $J10, $K10, " ", IF($V11="N", "+", "/"), " ", INDEX('Catalog'!C:C,MATCH('Lot Tracking'!	$C11,'Catalog'!A:A,0)), " ", $J11, $K11)
+  )
+
+
+
+#Creates a calculated columns to manipulate dataset.
+  =FORMAT(RAWDATA[REQUEST_DT_TM],"h") # Formats the time value to hours from 1-24
+
+
+
+# PowerPivot custom measures. Used to verify data in the powerpivot dataset.
+  Distinct Dates:=DISTINCTCOUNT([REQUEST DT])
+  AVG per Day:=[Total Records]/[Distinct Dates]
+  AVG per Hour:=[Total Records]/[Distinct Hours]
+  Total Records:=Count([CC_COUNT OF DT_TM])
+
+
+
+# PowerBI DAX: Create a date dim table to handle time series data
+  Date Dim = CALENDARAUTO()                   #Creates a column for the date, formatted 'MM/DD/YYY'
+  Year = 'Date Dim'[Date].[Year]              #Parses the data year
+  Month = 'Date Dim'[Date].[Month]            #Parses the data month formatted 'January, etc.'
+  Qtr = 'Date Dim'[Date].[Quarter]            #DAX function that creates quarter column
+  Month No. = 'Date Dim'[Date].[MonthNo]      #DAX function that creates a month# column
