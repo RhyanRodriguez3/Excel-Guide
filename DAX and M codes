@@ -1,0 +1,19 @@
+Data Analysis Expressions and M code for PowerBI and PowerPivot
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#Creates a calculated columns to manipulate dataset.
+  =FORMAT(RAWDATA[REQUEST_DT_TM],"h") # Formats the time value to hours from 1-24
+
+# PowerPivot custom measures. Used to verify data in the powerpivot dataset.
+  Distinct Dates:=DISTINCTCOUNT([REQUEST DT])
+  AVG per Day:=[Total Records]/[Distinct Dates]
+  AVG per Hour:=[Total Records]/[Distinct Hours]
+  Total Records:=Count([CC_COUNT OF DT_TM])
+
+
+# PowerBI DAX: Create a date dim table to handle time series data
+  Date Dim = CALENDARAUTO()                   #Creates a column for the date, formatted 'MM/DD/YYY'
+  Year = 'Date Dim'[Date].[Year]              #Parses the data year
+  Month = 'Date Dim'[Date].[Month]            #Parses the data month formatted 'January, etc.'
+  Qtr = 'Date Dim'[Date].[Quarter]            #DAX function that creates quarter column
+  Month No. = 'Date Dim'[Date].[MonthNo]      #DAX function that creates a month# column
