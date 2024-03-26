@@ -9,6 +9,11 @@ Excel Formulas (for future use)
   )
 
 
+#Create an date dim table
+  = YEAR(array)     # Create a year column
+  = TEXT(MONTH(Q3)*29,"MMM")     # Create a month column
+  = "Q"&CHOOSE(MONTH(Q3),3,3,3,4,4,4,1,1,1,2,2,2)     # Create a qtr column
+
 
 #Different formulas to pull values from other tabs.
   =INDEX(array,MATCH(lookup_value, lookup_array, [match_type]),[column_num])
