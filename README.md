@@ -16,6 +16,7 @@ Get comfortable looking at columns and the data. Make assumptions and define col
   Verify if any columns were calculated. Learn a few functions to handle calculations and string values.
   Learn XLOOKUP, IF THEN (with multiple conditions based on input cells), ERROR, AND/OR, 
   Learn a few YoY financial analysis, annual and quarterly money, forecast based on historical data.
+  Competitor analysis to define market share. Learn pivot tables. Learn how to format graphs and format.
 
 Learn how to make unique IDs with concat.
 
