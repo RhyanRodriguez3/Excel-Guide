@@ -7,6 +7,13 @@ Show condtional formatting to make easily readable reports
 MediCal Audit
 Excel formulas that I was proud of
 
+DATA CLEANSING AND ANALYZING
+when your cleaning data, you assign the data types, then check for nulls, then check for duplicates.
+Then you create calculated columns.
+Then you format the report.
+Then you try to automate the original report.
+
+
 Reports Generation
 Conditional formatting and referencing for readability. Use the company colors to get clients familiarized with your work.
    Create a notes tab for documentation.
