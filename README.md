@@ -1,6 +1,8 @@
 # Excel Portfolio
 
 *WIP*
+
+Become comfortable with problem solving. When overwhelmed with a problem, break it down into smaller parts and solve each one at a time.
 <!--
 Showcase audit files to showcase reference capability
 Show condtional formatting to make easily readable reports
