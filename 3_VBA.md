@@ -17,13 +17,15 @@ VBA is a tool for programming, editing and running application code. You can cre
 - Create a few simple macros, like convert a column that was inputted into ecxcel into the correct format. In this case, record the macro and do what you normally would and it will save it for you.
 - Get comforatble writing down every step of the macro. 
 
+47:07
 
 
 <details>
  <summary>🛑 SOURCES</summary>
 
 ---  
-- VBA Beginner Tutorial: [https://www.youtube.com/watch?v=G05TrN7nt6k&list=PLoyECfvEFOjYYy54Wa9E83xycKilVMoHp](https://www.youtube.com/watch?v=G05TrN7nt6k&list=PLoyECfvEFOjYYy54Wa9E83xycKilVMoHp)
+- VBA Beginner Tutorial - https://www.youtube.com/watch?v=G05TrN7nt6k&list=PLoyECfvEFOjYYy54Wa9E83xycKilVMoHp
+- 
 
 <ins>Testing</ins> -- To underline text
 
