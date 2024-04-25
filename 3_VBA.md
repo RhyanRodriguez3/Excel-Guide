@@ -14,4 +14,19 @@ VBA is a tool for programming, editing and running application code. You can cre
 - Each macro defaults to absolute references. 'Use relative reference' button to create a macro that doesn't depend on an absolute reference. Absolute referencing is good for sorting and filtering. Always consider wether you want to use relative reference of not. 
 
 ## Simple Macros
-- Create a few simple macros, like convert a column that was inputted into ecxcel into the correct format.  
+- Create a few simple macros, like convert a column that was inputted into ecxcel into the correct format. In this case, record the macro and do what you normally would and it will save it for you.
+- Get comforatble writing down every step of the macro. 
+
+
+
+<details>
+ <summary>🛑 SOURCES</summary>
+
+---  
+- VBA Beginner Tutorial: [https://www.youtube.com/watch?v=G05TrN7nt6k&list=PLoyECfvEFOjYYy54Wa9E83xycKilVMoHp](https://www.youtube.com/watch?v=G05TrN7nt6k&list=PLoyECfvEFOjYYy54Wa9E83xycKilVMoHp)
+
+<ins>Testing</ins> -- To underline text
+
+---
+
+<details>
