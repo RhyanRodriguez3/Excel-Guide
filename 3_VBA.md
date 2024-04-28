@@ -1,3 +1,4 @@
+# VBA Guide
 VBA is a tool for programming, editing and running application code. You can create a custom function with VBA. 
 
 ## Object Oriented Programming Languages
@@ -33,7 +34,27 @@ VBA is a tool for programming, editing and running application code. You can cre
 
 ## Debugging Macros
 - Right click on the empty space in the tab of the play icon, and click customize. In the debugging category, click and drag these into the tab; step into, compile project, and toggle breakpoint.
-1:19:35
+- Excel will not undo macros. Create backups of the original data to test your macro on. 
+- To debug, use step into button to run your code line by line and correct output errors. 
+
+## Creating Macros from Scratch
+- Objects are stated first in OOP, then you state what you want to do to it using a method (Insert).
+- Methods are command statements to do something to the object (verbs). 
+- Objects are sheets, tables, charts, cells, columns, and rows.
+- Properties are the way we describe certain objects, such as .color, .value, .font (adjectives).
+
+## Macro Scripting Basics
+- Go to insert, module, and insert a procedure.
+- Procedures are large macros. Sub proecdures are regular macros. Public macros are available to other macros and users. 
+Objects, method, 
+Rows("1:1").Insert
+Range("A:1").Value = "Emp ID"
+- There are multiple ways to express the same object. For example, range("C3") is Cells(3,3), is [C3], and use a variable.
+
+## Difference between select and selection
+- Select means you selected the object you specified.
+- Selection referes to the object you already selected. usually followed by commands. Value = 'YourInput'
+- Value is a property.
 
 
 
