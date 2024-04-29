@@ -1,10 +1,20 @@
 # VBA Guide
-- VBA is a tool for programming, editing and running application code. You can create a custom function with VBA. 
-- It is a pragramming tool to automate manual tasks. The most manual tasks I've done are clean up data dump formatting. 
+- Visual Basic for Applications (VBA) is Microsoft's tool for programming, editing, and running application code. It is primarily used in Excel to automate manual tasks.
+> such as data dump cleansing and reporting.
+>
+> - Data structures contain data about an object and its properties.
 
-## Object Oriented Programming Languages
-- In each statement start by defining the object. Think of a cell as the object you want to change.
-- The basic of OOP Objects are data structures that contain data about an object as well in the form of properties and also code in the form of methods.
+## Intro to Object Oriented Programming (OOP)
+VBA is an OOP language. This means statements start by defining the object, then stating what you want to do to the object. Statements are made with objects, properties, syntax, and methods.
+1. Syntax is the 
+1. Objects are the item you want to manipulate. In excel, these are cell(s), row(s), column(s), table(s), chart(s), table(s), and sheet(s).
+   - `ActiveSheet` is the sheet you are currently on
+   - Sheet(1) refers to the first sheet in your workbook.
+   - Sheets("NameOfYourSheet").select Great for multiple sheets
+1. Methods are built-in functions. Methods are command statements to do something to the object (verbs). 
+1. Properties are the way we describe certain objects, such as .color, .value, .font (adjectives).
+
+ 
 
 ## Turning on the Developer Tab
 - Go to the file tab, click options, click customize ribbons, check the developer box.
@@ -39,13 +49,7 @@
 - To debug, use step into button to run your code line by line and correct output errors. 
 
 ## Creating Macros from Scratch
-- Objects are stated first in OOP, then you state what you want to do to it using a method (Insert).
-- Methods are command statements to do something to the object (verbs). 
-- Objects are sheets, tables, charts, cells, columns, and rows.
-  - `ActiveSheet` is the sheet you are currently on
-  - Sheet(1) refers to the first sheet in your workbook.
-  - Sheets("NameOfYourSheet").select Great for multiple sheets
-- Properties are the way we describe certain objects, such as .color, .value, .font (adjectives).
+
 
 ## Macro Scripting Basics
 - Go to insert, module, and insert a procedure.
