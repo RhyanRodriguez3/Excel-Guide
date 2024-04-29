@@ -4,9 +4,9 @@
 >
 > - Data structures contain data about an object and its properties.
 
-## Intro to Object Oriented Programming (OOP)
+## Object Oriented Programming (OOP) Intro
 VBA is an OOP language. This means statements start by defining the object, then stating what you want to do to the object. Statements are made with objects, properties, syntax, and methods.
-1. Syntax is the 
+1. Syntax are the elements of grammar 
 1. Objects are the item you want to manipulate. In excel, these are cell(s), row(s), column(s), table(s), chart(s), table(s), and sheet(s).
    - `ActiveSheet` is the sheet you are currently on
    - Sheet(1) refers to the first sheet in your workbook.
@@ -16,8 +16,8 @@ VBA is an OOP language. This means statements start by defining the object, then
 
  
 
-## Turning on the Developer Tab
-- Go to the file tab, click options, click customize ribbons, check the developer box.
+## Getting started with Recording Macros on the Developer Tab
+- Go to the file tab, click options, click customize ribbons, check the developer box. 
 - Use Record Macro, title the macro name and fill descriptions, then save in your personal macro workbook to use on any file or save on 'this workbook' to keep it only in that file.
 > TIP: Use 'ctrl + shift + YourKey' as a general formula for saving shortcuts. There are not a lot of shortcuts using this combo.
 - Use ctrl + enter to execute each macro step, this creates an open source pathway. Then stop recording.
