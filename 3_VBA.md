@@ -1,5 +1,6 @@
 # VBA Guide
-VBA is a tool for programming, editing and running application code. You can create a custom function with VBA. 
+- VBA is a tool for programming, editing and running application code. You can create a custom function with VBA. 
+- It is a pragramming tool to automate manual tasks. The most manual tasks I've done are clean up data dump formatting. 
 
 ## Object Oriented Programming Languages
 - In each statement start by defining the object. Think of a cell as the object you want to change.
@@ -41,6 +42,9 @@ VBA is a tool for programming, editing and running application code. You can cre
 - Objects are stated first in OOP, then you state what you want to do to it using a method (Insert).
 - Methods are command statements to do something to the object (verbs). 
 - Objects are sheets, tables, charts, cells, columns, and rows.
+  - `ActiveSheet` is the sheet you are currently on
+  - Sheet(1) refers to the first sheet in your workbook.
+  - Sheets("NameOfYourSheet").select Great for multiple sheets
 - Properties are the way we describe certain objects, such as .color, .value, .font (adjectives).
 
 ## Macro Scripting Basics
@@ -54,9 +58,22 @@ Range("A:1").Value = "Emp ID"
 ## Difference between select and selection
 - Select means you selected the object you specified.
 - Selection referes to the object you already selected. usually followed by commands. Value = 'YourInput'
-- Value is a property.
+  - Selection.CurrentRegion
+- Properties.
+  - .Value aka FormulaR1C1 is the archaic coding language
+  - .Name
+  - .CurrentRegion
+ - With and End With come before the object and apply all the commands. Usually prefaced with a '.' The With statement allows you to make an object statement once refer to all the properties of that object.
 
-
+## Useful Codes
+- Click on the current list of data you have and this code will select the entire dataset.
+```
+Selection.CurrentRegion.Select
+```
+- You can refer to an object and its current values. The code below inputs the value of the cell as whatever the name of the sheet is then adds your value
+```
+Range("InputYourCell").Value = ActiveSheet.Name & "InputYourValue"
+```
 
 
 <details>
